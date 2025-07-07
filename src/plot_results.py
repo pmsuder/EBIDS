@@ -22,8 +22,8 @@ def make_plots(setting):
 
     num_results = 200
     sim_len = 500
-    table_skip = 20
     
+    table_skip = 20
     table_timepts = [i for i in range(table_skip-1, sim_len, table_skip)]
     
     solid_lines_keys = ['EBIDS', 'IDS-UCB', 'UCB', 'EB-UCB', 'NAOFUL', 'OLSOFUL']
@@ -153,7 +153,7 @@ def make_plots(setting):
 
         plot_regrets(outfile = 'plots/' + setting + '_EBIDS_tuning.pdf', mean_results = results_plot, lower_conf_results = None, upper_conf_results = None, figsize = figsize, num_fontsize = fontsize, legend_fontsize = fontsize, axis_label_fontsize = fontsize, add_legend = add_legend, add_y_label = add_y_label)
         
-        # PREPARE TABLE FOR LATEX ------------------------------------------------------------------------
+       # PREPARE TABLE FOR LATEX ------------------------------------------------------------------------
         table_latex = {}
         for key in all_results.keys():
             table_latex[key] = {time: (mean_results[key][time], mean_results[key][time] - lower_conf_results[key][time]) for time in table_timepts}
